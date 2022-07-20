@@ -1,0 +1,28 @@
+package uz.pdp.appwarehouse.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import uz.pdp.appwarehouse.domain.template.AbsEntity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity(name = "supplier")
+public class Supplier extends AbsEntity {
+
+    @Column(nullable = false)
+    private String fullName;
+
+    @Column(nullable = false)
+    private String phoneNumber;
+
+    @ManyToOne
+    private Shop shop;
+}
